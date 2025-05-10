@@ -1,23 +1,26 @@
 import { Tabs } from 'expo-router';
 import { StyleSheet } from 'react-native';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
-
 export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
         tabBarStyle: styles.tabBar,
-        tabBarActiveTintColor: '#98002E', 
-        tabBarInactiveTintColor: '#aaa',
+        tabBarActiveTintColor: '#98002E', // Active tab color (red)
+        tabBarInactiveTintColor: '#aaa', // Inactive tab color (gray)
         headerShown: false,
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="index" 
         options={{
           title: 'Home',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home" size={size} color={color} />
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons 
+              name="home"
+              size={size}
+              color={focused ? '#98002E' : '#aaa'} 
+            />
           ),
         }}
       />
@@ -25,9 +28,13 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="search"
         options={{
-          title: 'Search',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="search" size={size} color={color} />
+          title: 'Search', 
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons
+              name="search"
+              size={size}
+              color={focused ? '#98002E' : '#aaa'}
+            />
           ),
         }}
       />
@@ -36,8 +43,12 @@ export default function TabsLayout() {
         name="appointment"
         options={{
           title: 'Appointment',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="calendar" size={size} color={color} />
+          tabBarIcon: ({ focused, color, size }) => (
+            <MaterialCommunityIcons
+              name="calendar" 
+              size={size}
+              color={focused ? '#98002E' : '#aaa'}
+            />
           ),
         }}
       />
@@ -46,14 +57,19 @@ export default function TabsLayout() {
         name="profile"
         options={{
           title: 'Profile',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person" size={size} color={color} />
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons
+              name="person"
+              size={size} 
+              color={focused ? '#98002E' : '#aaa'}
+            />
           ),
         }}
       />
     </Tabs>
   );
 }
+
 
 const styles = StyleSheet.create({
   tabBar: {
@@ -64,4 +80,4 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     paddingTop: 5,
   },
-});
+});        
